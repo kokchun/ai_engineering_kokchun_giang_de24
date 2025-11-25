@@ -20,4 +20,7 @@ async def read_book_by_id(id: int):
 
 @app.post("/books/create_book")
 async def create_book(book_request: Book):
-    ...
+    new_book = Book(**book_request)
+    books.append(new_book)
+    
+    return new_book
