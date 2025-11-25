@@ -34,3 +34,10 @@ async def update_book(updated_book: Book):
             books[i] = updated_book
     
     return updated_book
+
+@app.delete("/books/delete_book/{id}")
+async def update_book(id: int):
+    for i, book in enumerate(books):
+        if book.id == id:
+            del books[i]
+            break
