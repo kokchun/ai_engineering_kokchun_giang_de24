@@ -1,0 +1,1 @@
+I won't go through a_gemini_pydantic.ipynb, you can check video. Instead we will go through b_gemini_pydantic_more_robust.ipynb
