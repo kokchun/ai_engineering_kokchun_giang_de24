@@ -3,12 +3,14 @@ import json
 from pprint import pprint
 from pydantic import BaseModel, Field
 
+# convenience function to read json
 def read_json(filename: str):
     with open(DATA_PATH / filename, 'r') as file:
         data = json.load(file)
     
     return data
 
+# pydantic models
 class Book(BaseModel):
     id: int 
     title: str 
@@ -19,6 +21,7 @@ class Library(BaseModel):
     name: str
     books: list[Book]
 
+# validate json into pydantic models
 def library_data(filename):
     json_data = read_json(filename)
     return Library(**json_data)
