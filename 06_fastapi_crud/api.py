@@ -26,3 +26,11 @@ async def create_book(book_request: Book):
     # note that the new book is not persisted throughout sessions
     books.append(new_book)
     return new_book
+
+@app.put("/books/update_book")
+async def update_book(updated_book: Book):
+    for i, book in enumerate(books):
+        if book.id == updated_book.id:
+            books[i] = updated_book
+    
+    return updated_book
