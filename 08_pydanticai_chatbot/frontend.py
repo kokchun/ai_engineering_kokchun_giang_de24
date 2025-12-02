@@ -31,3 +31,14 @@ def handle_user_input():
             st.markdown(response)
 
         st.session_state.messages.append({"role": "assistant", "content": response})
+
+def layout():
+    st.markdown("# Chat with RoBÅT")
+    st.markdown("RoBÅT is a funny robot that jokes about programming")
+
+    display_chat_messages()
+    handle_user_input()
+
+if __name__ == "__main__":
+    init_session_states()
+    layout()
