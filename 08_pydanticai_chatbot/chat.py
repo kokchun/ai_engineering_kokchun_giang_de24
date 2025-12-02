@@ -22,7 +22,12 @@ class JokeBot:
     
 
 if __name__ == "__main__":
+    # instantiate an instance of class JokeBot (bot is sent in as self)
     bot = JokeBot()
 
+    # call method chat (bot is sent in as self)
+    result = bot.chat("tell me a math joke")
     result = bot.chat("hallo thare")
+
+    result = bot.chat("what did I ask you first?")
     print(result)
