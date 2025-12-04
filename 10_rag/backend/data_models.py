@@ -10,6 +10,7 @@ embedding_model = get_registry().get("gemini-text").create(name="gemini-embeddin
 EMBEDDING_DIM = 3072
 
 class Article(LanceModel):
+    """Represents a wikipedia article with its corresponding embeddings"""
     doc_id: str 
     filepath: str 
     filename: str = Field(description="stem of the file, without suffix")
