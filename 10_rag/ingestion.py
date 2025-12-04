@@ -15,7 +15,7 @@ def setup_vector_db(path):
 
 def ingest_docs_to_vector_db(table):
     for filepath in DATA_PATH.glob("*.txt"):
-        with open(filepath, "r") as file: 
+        with open(filepath, "r", encoding="utf-8") as file: 
             content = file.read()
         
         doc_id = filepath.stem
