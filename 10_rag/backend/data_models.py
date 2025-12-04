@@ -1,7 +1,7 @@
 from lancedb.pydantic import LanceModel, Vector
 from lancedb.embeddings import get_registry
 from dotenv import load_dotenv
-from pydantic import Field
+from pydantic import Field, BaseModel
 
 load_dotenv()
 
@@ -16,3 +16,11 @@ class Article(LanceModel):
     filename: str = Field(description="stem of the file, without suffix")
     content: str = embedding_model.SourceField()
     embedding: Vector(EMBEDDING_DIM) = embedding_model.VectorField()
+
+class Prompt(BaseModel):
+    prompt: str = Field(description="prompt from user")
+
+class RagResponse(BaseModel):
+    filename: str = Field(description="filename of retrieved file without suffix")
+    filepath: str = Field(description="absolute path to retrieved file")
+    answer: str = Field(description="answer based on retrieved file")
